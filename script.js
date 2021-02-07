@@ -3,16 +3,13 @@ const itemSearch = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 
 
-
 const mealItem = () => {
-  
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemSearch.value}`)
     .then((res) => res.json())
     .then((food) => {
       foodList(food);
     });
 };
-
 
 
 const foodList = (foods) => {
@@ -47,8 +44,6 @@ const foodList = (foods) => {
     foodContainer.classList.add("food-card-area");
   }
 };
-
-
 
 searchButton.addEventListener("click", () => {
   mealItem();
