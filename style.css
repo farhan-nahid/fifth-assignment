@@ -24,3 +24,11 @@ input {
   margin: auto;
   text-align: center;
 }
+
+.modal {
+  padding: 10px;
+}
+
+.footer {
+  text-align: right;
+}
