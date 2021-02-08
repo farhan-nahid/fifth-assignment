@@ -31,7 +31,10 @@ const displayFoods = foods => {
 }
 
 const getDetails = mealId => {
-  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+  const url =`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+
+    // load data form api
+       fetch(url)
       .then(response => response.json())
       .then(data => displayMealsDetails(data.meals[0]));
 }
