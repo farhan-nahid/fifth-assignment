@@ -15,14 +15,15 @@ input {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
+  position: relative;
   width: 80%;
   margin: auto;
 }
 
-.invalid-input {
-  width: 1000px;
-  margin: auto;
-  text-align: center;
+.food-card-area :hover {
+  z-index: 1;
+  transform: scale(1.04);
+  transition: 0.8s;
 }
 
 .modal {
