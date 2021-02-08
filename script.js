@@ -6,22 +6,12 @@ const searchFood  =     () =>{
 fetch (url)
 .then(res => res.json())
 .then (data => displayFoods(data.meals)) 
+.catch( error => window.alert( searchText+ "  is invalid" ))
 
 
 const displayFoods = foods => {
   console.log(foods);
   const foodContainer = document.getElementById("food-container");
-
-  if (searchText === null){
-    foodContainer.innerHTML = `
-       <div>
-         <h1> Sorry !!  ${searchText} This food is not Available  our Restaurant. Please Order Another Food.  </h1>
-        </div>
-       `
-       foodContainer.classList.remove("food-card-area");
-    foodContainer.classList.add("invalid-input");
-  }
-else{
   foods.forEach(food => {
     console.log(food);
     const foodDiv = document.createElement("div");
@@ -32,13 +22,12 @@ else{
                     <div class="card-body">
                       <h5 class="text-center">${food.strMeal}</h5>
                     </div>
-                  </div>
-                
-    `;
+                  </div>        
+       `
     foodContainer.appendChild(foodDiv)
   });
 }
-}
+
 }
 
 const getDetails = mealId => {
