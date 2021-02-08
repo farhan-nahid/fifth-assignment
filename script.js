@@ -6,17 +6,15 @@ const searchFood  =     () =>{
 fetch (url)
 .then(res => res.json())
 .then (data => displayFoods(data.meals)) 
-.catch( error => window.alert( searchText+ "  is invalid" ))
+.catch( error => window.alert( searchText+ "  is a invalid  input !!  Please try again." ))
 
 
 const displayFoods = foods => {
-  console.log(foods);
-  const foodContainer = document.getElementById("food-container");
+  const foodContainer = document.getElementById("food-container")
   foods.forEach(food => {
-    console.log(food);
-    const foodDiv = document.createElement("div");
+    const foodDiv = document.createElement("div")
     foodDiv.className.add = ' food-card-area ';
-    foodDiv.innerHTML=`
+    foodDiv.innerHTML= `
                   <div   onclick="getDetails('${food.idMeal}')" class="card shadow rounded" >
                     <img src="${food.strMealThumb}" class="card-img-top" alt="..." />
                     <div class="card-body">
@@ -26,9 +24,8 @@ const displayFoods = foods => {
        `
     foodContainer.appendChild(foodDiv)
   });
-}
-
-}
+};
+};
 
 const getDetails = mealId => {
   const url =`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
